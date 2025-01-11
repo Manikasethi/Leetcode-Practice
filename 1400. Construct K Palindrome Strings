@@ -1,0 +1,21 @@
+class Solution {
+    public boolean canConstruct(String s, int k) {
+        boolean flag;
+        int freq[]= new int[26];
+
+        for(char c:s.toCharArray()){
+            freq[c-'a']++;  // we get index for putting freq
+        }
+        // min no. of palindromes = no. of odd char
+        int OddChar=0;
+        for(int i =0;i<26;i++){
+        if(freq[i]%2!=0){
+            OddChar++;
+         }
+        }
+
+        flag= (k<=s.length()) && (OddChar<=k);  // s must be greater than k
+
+        return flag;
+    }
+}
